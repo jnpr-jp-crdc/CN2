@@ -22,9 +22,9 @@
 
     - Kubernetesのインストールが初めての方は、以下を参考にしてください
 
-    [Kubernetesインストール(JuniperSite)](https://www.juniper.net/documentation/us/en/software/cn-cloud-native22/cn-cloud-native-k8s-install-and-lcm/topics/task/cn-cloud-native-k8s-create-kubernetes-cluster.html)
+      [Kubernetesインストール(JuniperSite)](https://www.juniper.net/documentation/us/en/software/cn-cloud-native22/cn-cloud-native-k8s-install-and-lcm/topics/task/cn-cloud-native-k8s-create-kubernetes-cluster.html)
     
-    [Kubernetesインストール(kubernetes.io)](https://kubernetes.io/ja/docs/setup/production-environment/tools/kubeadm/)
+      [Kubernetesインストール(kubernetes.io)](https://kubernetes.io/ja/docs/setup/production-environment/tools/kubeadm/)
 
   - Contrail Requirements
 

@@ -31,7 +31,7 @@ Juniper Networks社のContrail Networkingは、2012年にContrail Systems社を�
 
 # チュートリアル
 - [CN2 Install](https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/install.md)
-- Namespace
+- [Namespace](https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/Namespace.md)
   - Isolated Namespace
   - Pod作成(default-podnetwork)
   - Fabric SNAT

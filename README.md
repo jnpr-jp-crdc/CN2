@@ -30,7 +30,7 @@ Juniper Networks社のContrail Networkingは、2012年にContrail Systems社を�
 2022年、Contrail NetworkingはCloud Native Contrail Networking(CN2)と名称を変え、Cloud Native環境とより親和性を上げるためにアーキテクチャの変更が行われました。
 
 # チュートリアル
-- CN2 Install
+- [CN2 Install](https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/install.md)
 - Namespace
   - Isolated Namespace
   - Pod作成(default-podnetwork)

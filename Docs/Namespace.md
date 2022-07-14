@@ -27,7 +27,7 @@ CN2では以下の2つのタイプのNamespaceを利用することが可能
 - SNATのため、外部からPODへの接続は不可
 - SNATはNamespace内のdefault-podnetworkにのみ有効
 
-![FabricSNAT](https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/Images/IsolatedNamespace_SNAT.png)
+<img src="https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/Images/IsolatedNamespace_SNAT.png" width="50%">
 
 [Isolated Namespace with Fabric SNAT Sample yaml](https://github.com/jnpr-jp-crdc/CN2/blob/main/Manifests/IsolatedNamespace_with_SNAT.yaml)
 
@@ -36,6 +36,6 @@ CN2では以下の2つのタイプのNamespaceを利用することが可能
 - Fabric forwardingはNamespace内のdefault-podnetworkにのみ有効
 - Contrail Control Nodeと外部ルータ間でBGP接続をしている場合、PODのホストルートがBGP/inet unicastにより外部ルータへAdvertiseされる
   - 外部ルータ接続　参照
-![FabricForwarding](https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/Images/IsolatedNamespace_with_FabricForwarding.png)
+<img src="https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/Images/IsolatedNamespace_with_FabricForwarding.png" width="50%">
 
 [Isolated Namespace with Fabric Forwarding Sample yaml](https://github.com/jnpr-jp-crdc/CN2/blob/main/Manifests/IsolatedNamespace_with_FabricForwarding.yaml)

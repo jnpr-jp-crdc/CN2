@@ -30,45 +30,45 @@ Juniper Networks社のContrail Networkingは、2012年にContrail Systems社を�
 2022年、Contrail NetworkingはCloud Native Contrail Networking(CN2)と名称を変え、Cloud Native環境とより親和性を上げるためにアーキテクチャの変更が行われました。
 
 # チュートリアル
-0. CN2 Install
-1. Namespace
- 1-1. Isolated Namespace
- 2. Pod作成(default-podnetwork)
- 3. Fabric SNAT
- 4. Fabric Forwarding
-2. Virtual Network
- 1. Network Attachment Definition
- 2. Pod作成(Contrail Virtual Network)
- 3. Pod作成(Contrail Multi Virtual Network)
- 4. Subnet
- 5. Virtual Network
-3. Virtual Netowrk Router
- 1. Mesh Case1
- 2. Mesh Case2
- 3. Mesh Case3
- 4. Hub&Spoke Case1
- 5. Hub&Spoke Case2
- 6. Mesh&Hub&Spoke
-4. Route Leak
- 1. Same Route Target
- 2. Router Target Import/Export
-5. BGPaaS
-6. VLAN Sub Interface
-7. Allowed Address Pair (VIP)
-8. Network Policy
-9. 外部Router接続
- 1. Fabric Forwarding
- 2. Virtual Network
-10. ClusterIP
-11. NodePort
-12. Load Balancer
-13. Ingress
-14. KubeVirt
-15. DPDK
-16. Port base Mirroring
-17. Contrail Status
-18. Analytics
-19. Lens Extention
-20. Contrail Pipeline
-21. Multi-Cluster
+- CN2 Install
+ - Namespace
+ - Isolated Namespace
+ - Pod作成(default-podnetwork)
+ - Fabric SNAT
+ - Fabric Forwarding
+- Virtual Network
+ - Network Attachment Definition
+ - Pod作成(Contrail Virtual Network)
+ - Pod作成(Contrail Multi Virtual Network)
+ - Subnet
+ - Virtual Network
+- Virtual Netowrk Router
+ - Mesh Case1
+ - Mesh Case2
+ - Mesh Case3
+ - Hub&Spoke Case1
+ - Hub&Spoke Case2
+ - Mesh&Hub&Spoke
+- Route Leak
+ - Same Route Target
+ - Router Target Import/Export
+- BGPaaS
+- VLAN Sub Interface
+- Allowed Address Pair (VIP)
+- Network Policy
+- 外部Router接続
+ - Fabric Forwarding
+ - Virtual Network
+- ClusterIP
+- NodePort
+- Load Balancer
+- Ingress
+- KubeVirt
+- DPDK
+- Port base Mirroring
+- Contrail Status
+- Analytics
+- Lens Extention
+- Contrail Pipeline
+- Multi-Cluster
 

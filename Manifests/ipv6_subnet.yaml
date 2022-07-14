@@ -1,0 +1,14 @@
+apiVersion: core.contrail.juniper.net/v1alpha1
+kind: Subnet
+metadata:
+  name: subnet1-v6
+  namespace: ns1
+  annotations:
+    core.juniper.net/display-name: subnet1-v6
+spec:
+  cidr: 2001:db8::/64
+  defaultGateway: 2001:db8::1
+  dnsNameservers: [2001:db8::8:8:8:8]
+  bgpaasPrimaryIP: 2001:db8::2
+  bgpaasSecondaryIP: 2001:db8::3
+  disableBGPaaSIPAutoAllocation: true

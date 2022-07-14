@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: centos1
+  namespace: ns1
+k8s.v1.cni.cncf.io/networks: |- 
+  [
+    {
+      "name": "vn1", 
+      "namespace": "ns1", 
+      "cni-args": null, 
+      "ips": ["10.0.0.100"], 
+      "mac": "de:ad:00:00:be:ef", 
+      "interface": "tap1”
+    },
+    {
+      "name": "vn2", 
+      "namespace": "ns1", 
+      "cni-args": null, 
+      "ips": ["20.0.0.100"], 
+      "mac": "de:ad:00:00:be:ee", 
+      "interface": "tap2" 
+    }
+  ]
+spec:
+  containers:
+  - name: centos1
+    image: centos
+    command: [ "/bin/bash", "-c" ]
+    args:
+      - ip route del default;
+        ip route add default via 10.0.0.1;
+        sleep infinity;
+    securityContext:
+      privileged: true
+      capabilities:
+        add:
+          - NET_ADMIN

@@ -15,7 +15,7 @@ CN2では以下の2つのタイプのNamespaceを利用することが可能
   - Podは”IP Fabric Forwarding”, “Fabric Source NAT”機能を利用することでUnderlay Networkへ接続が可能
   - “Virtual Network Router(VNR)”機能を利用することでNamespace間接続が可能
 
-<img src="https://www.juniper.net/documentation/us/en/software/cn-cloud-native22/cn-cloud-native-feature-guide/cn-cloud-native-network-feature/images/jn-000222.png" width="50%">
+<img src="https://www.juniper.net/documentation/us/en/software/cn-cloud-native22/cn-cloud-native-feature-guide/cn-cloud-native-network-feature/images/jn-000222.png" width="0%">
 
 # Namespace作成
 

@@ -32,7 +32,7 @@ Juniper Networks社のContrail Networkingは、2012年にContrail Systems社を�
 # チュートリアル
 0. CN2 Install
 1. Namespace
- 1. Isolated Namespace
+ 1-1. Isolated Namespace
  2. Pod作成(default-podnetwork)
  3. Fabric SNAT
  4. Fabric Forwarding

@@ -18,9 +18,9 @@
 
 2. Kubernetesのインストール
 
-  - Kubernetesのインストール方法に制限はありません。
+    - Kubernetesのインストール方法に制限はありません。
 
-  - Kubernetesのインストールが初めての方は、以下を参考にしてください
+    - Kubernetesのインストールが初めての方は、以下を参考にしてください
 
     [Kubernetesインストール(JuniperSite)](https://www.juniper.net/documentation/us/en/software/cn-cloud-native22/cn-cloud-native-k8s-install-and-lcm/topics/task/cn-cloud-native-k8s-create-kubernetes-cluster.html)
     

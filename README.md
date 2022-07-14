@@ -46,7 +46,7 @@ Juniper Networks社のContrail Networkingは、2012年にContrail Systems社を�
   - Pod作成(Contrail Multi Virtual Network)
   - Subnet
   - Virtual Network
-- Virtual Netowrk Router
+- [Virtual Netowrk Router](https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/VirtualNetworkRouter.md)
   - Mesh Case1
   - Mesh Case2
   - Mesh Case3

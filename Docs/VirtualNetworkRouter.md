@@ -76,4 +76,4 @@
 - Default Cluster Namespace, Contrail NamespaceにはDefaultで定義されているVNRがあり、default-podnetwork, default-servicenetwork間の接続、Fabric Networkへの接続が定義されている
 - Isolated Namespace作成時にもDefaultでVNRが作成される
 
-<img src="https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/Images/vnr-default.png" width="80%">
+<img src="https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/Images/vnr-default.png" width="90%">

@@ -1,0 +1,32 @@
+apiVersion: core.contrail.juniper.net/v1alpha1
+kind: VirtualNetwork
+metadata:
+  namespace: ns1
+  name: vn1
+spec:
+  v4SubnetReference:
+    apiVersion: core.contrail.juniper.net/v1alpha1
+    kind: Subnet
+    namespace: ns1
+    name: subnet1-v4
+  v6SubnetReference:
+    apiVersion: core.contrail.juniper.net/v1alpha1
+    kind: Subnet
+    namespace: ns1
+    name: subnet1-v6
+  routeTargetList: 
+    - target:23:4561
+    - target:21:7000
+    - target:871:6540
+  importRouteTargetList:
+    - target:10.2.2.2:561 
+    - target:97:651
+  exportRouteTargetList: 
+    - target:10.1.1.1:561 
+    - target:97:651
+  virtualNetworkProperties:
+    forwardingMode: l2_l3
+    rpf: disable
+  fabricForwarding: false
+  fabricSNAT: false
+  isProviderNetwork: false

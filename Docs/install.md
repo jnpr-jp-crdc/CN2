@@ -14,7 +14,7 @@
 # インストール ステップ
 1. Free Trialサイトにアクセスし、hub.juniper.netのアカウント取得
 
-  [Free Trial](https://www.juniper.net/jp/ja/forms/cn2-free-trial.html)
+    [Free Trial](https://www.juniper.net/jp/ja/forms/cn2-free-trial.html)
 
 2. Kubernetesのインストール
 
@@ -34,23 +34,23 @@
     
 3. 以下のサイトからContrail Deployment ManifestsのDownload
 
-  [Download](https://support.juniper.net/support/downloads/?p=contrail-networking)
+    [Download](https://support.juniper.net/support/downloads/?p=contrail-networking)
 
-  権限のない方はJuniper担当者にお問い合わせください
+    権限のない方はJuniper担当者にお問い合わせください
   
 4. Contrail インストール
 
-  “kubectl –f apply deployer.yaml”でContrailがインストールされます。
+    “kubectl –f apply deployer.yaml”でContrailがインストールされます。
   
-  詳細なステップは以下を参照してください
+    詳細なステップは以下を参照してください
   
-  [Single Kubernetes Cluster (Shared Network)](https://www.juniper.net/documentation/us/en/software/cn-cloud-native22/cn-cloud-native-k8s-install-and-lcm/topics/topic-map/cn-cloud-native-k8s-install-single-cluster-one-net.html)
+    [Single Kubernetes Cluster (Shared Network)](https://www.juniper.net/documentation/us/en/software/cn-cloud-native22/cn-cloud-native-k8s-install-and-lcm/topics/topic-map/cn-cloud-native-k8s-install-single-cluster-one-net.html)
   
-  [Single Kubernetes Cluster (Multi Network)](https://www.juniper.net/documentation/us/en/software/cn-cloud-native22/cn-cloud-native-k8s-install-and-lcm/topics/topic-map/cn-cloud-native-k8s-install-single-cluster-multi-net.html)
+    [Single Kubernetes Cluster (Multi Network)](https://www.juniper.net/documentation/us/en/software/cn-cloud-native22/cn-cloud-native-k8s-install-and-lcm/topics/topic-map/cn-cloud-native-k8s-install-single-cluster-multi-net.html)
 
-  [Multi Kubernetes Cluster](https://www.juniper.net/documentation/us/en/software/cn-cloud-native22/cn-cloud-native-k8s-install-and-lcm/topics/topic-map/cn-cloud-native-k8s-install-multi-cluster-one-net.html)
+    [Multi Kubernetes Cluster](https://www.juniper.net/documentation/us/en/software/cn-cloud-native22/cn-cloud-native-k8s-install-and-lcm/topics/topic-map/cn-cloud-native-k8s-install-multi-cluster-one-net.html)
   
 5. Contrail Analytics インストール (Option)
 
-  [Contrail Analytics インストール](https://www.juniper.net/documentation/us/en/software/cn-cloud-native22/cn-cloud-native-k8s-install-and-lcm/topics/topic-map/cn-cloud-native-k8s-install-contrail-analytics.html)
+    [Contrail Analytics インストール](https://www.juniper.net/documentation/us/en/software/cn-cloud-native22/cn-cloud-native-k8s-install-and-lcm/topics/topic-map/cn-cloud-native-k8s-install-contrail-analytics.html)
 

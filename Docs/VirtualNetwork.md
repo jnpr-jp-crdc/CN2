@@ -11,7 +11,7 @@
 - NAD(Network Attachment Definition)作成時、SubnetとVirtual Networkが自動生成される
 - Multusインストール時、POD作成にはNADが必要
 
-![VirtualNetwork](https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/Images/VirtualNetwork.png)
+<img src="https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/Images/VirtualNetwork.png" width="50%">
 
 # Virtual Network作成
 PODをVirtual Networkに接続するには"Virtual Network"と"Subnet"の作成が必要
@@ -21,6 +21,7 @@ PODをVirtual Networkに接続するには"Virtual Network"と"Subnet"の作成�
 
 #### Subnet Option
 bgpaasPrimaryIP, bgpaasSecondaryIP: BGPaaS参照
+
 disableBGPaaSIPAutoAllocation: trueに設定した場合上記オプション必須 
 
 ## IPv6 Subnet
@@ -35,6 +36,7 @@ Virtual NetworkはIPv4 Only, IPv6 Only, DualStackが可能
 
 #### Virtual Network Option
 forwardingMode: l2_l3(Default) or l2 or l3 
+
 rpf: (ReversePathForwarding) trueの場合、RouteTableのValidationCheckが有効となり、RouteTableに存在しない場合通信不可
 
 ## Network Attachment Definition

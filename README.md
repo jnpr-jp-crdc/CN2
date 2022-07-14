@@ -36,7 +36,7 @@ Juniper Networks社のContrail Networkingは、2012年にContrail Systems社を�
   - Pod作成(default-podnetwork)
   - Fabric SNAT
   - Fabric Forwarding
-- Virtual Network
+- [Virtual Network](https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/VirtualNetwork.md)
   - Network Attachment Definition
   - Pod作成(Contrail Virtual Network)
   - Pod作成(Contrail Multi Virtual Network)

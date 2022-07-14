@@ -1,9 +1,13 @@
 # Cloud Native Contrail Networking(CN2)概要
 CN2は、Kubernetes, OpenShiftで利用可能なCNI(Container Network interface)です。
 
-EVPN/VXLAN, BGP/MPLSをベースとしたアーキテクチャとなり、Kubernetes/OpenShift Cluster内はもちろん、Cluster間接、Cluster外のDataCenterGatewayRouterとの接続やVPN網接続、など柔軟なネットワーク接続を提供します。
+EVPN/VXLAN, BGP/MPLSをベースとしたアーキテクチャとなり、Kubernetes/OpenShift Cluster内はもちろん、Cluster間接続、Cluster外のDataCenterGatewayRouterとの接続やVPN網接続、など柔軟なネットワーク接続を提供します。
 
-CN2特徴
+CN2特徴 
+
+・Virtual Networkによるマルチテナントネットワーク
+
+・Multusを使用せずにPODにMulti NICのアサイン
 
 ・ハイブリッド・マルチクラウド環境での一貫したネットワーク
 

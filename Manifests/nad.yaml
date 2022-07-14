@@ -1,0 +1,20 @@
+apiVersion: "k8s.cni.cncf.io/v1"
+kind: NetworkAttachmentDefinition
+metadata:
+  name: nad1
+  namespace: ns1
+  annotations:
+    juniper.net/networks: '{
+      "ipamV4Subnet": "10.0.0.0/24",
+      "ipamV6Subnet": "2001:db8::/64",
+      "routeTargetList": ["target:64512:1"], 
+      "importRouteTargetList": ["target:10.2.2.2:561"],
+      "exportRouteTargetList": ["target:10.1.1.1:561"], 
+      "fabricSNAT": true 
+    }'
+spec:
+  config: '{
+    "cniVersion": "0.3.1",
+    "name": ”nad1",
+    "type": "contrail-k8s-cni"
+  }'

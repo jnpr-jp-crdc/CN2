@@ -1,0 +1,82 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ns1
+  labels:
+    core.juniper.net/isolated-namespace: "true"
+---
+apiVersion: core.contrail.juniper.net/v1alpha1
+kind: Subnet
+metadata:
+  name: subnet1-v4
+  namespace: ns1
+  annotations:
+    core.juniper.net/display-name: subnet1-v4
+spec:
+  cidr: 10.0.0.0/24
+  defaultGateway: 10.0.0.1
+  bgpaasPrimaryIP: 10.0.0.2
+  bgpaasSecondaryIP: 10.0.0.3
+  disableBGPaaSIPAutoAllocation: true
+---
+apiVersion: core.contrail.juniper.net/v1alpha1
+kind: VirtualNetwork
+metadata:
+  namespace: ns1
+  name: vn1
+spec:
+  v4SubnetReference:
+    apiVersion: core.contrail.juniper.net/v1alpha1
+    kind: Subnet
+    namespace: ns1
+    name: subnet1-v4
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: bird-config
+  namespace: ns1
+  labels:
+    app: bird
+    type: config
+data:
+  bird.conf: |+
+    router id 10.0.0.4;
+    protocol device { scan time 10; }
+    protocol direct { }
+    protocol kernel {
+      persist;
+      scan time 20;
+      ipv4 {
+        import all;
+        export all;
+      };
+    }
+    protocol bgp bgp1_1 {
+      local as 10;
+      neighbor 10.0.0.2 as 64512;
+      ipv4 {
+        import all;
+        export all;
+      };
+    }
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: bird
+  namespace: ns1
+  annotations:
+    k8s.v1.cni.cncf.io/networks: vn1
+spec:
+  containers:
+    - image: pierky/bird:2.0.9
+      imagePullPolicy: IfNotPresent
+      name: bird
+      volumeMounts:
+        - name: config-volume
+          mountPath: /etc/bird
+  volumes:
+    - name: config-volume
+      configMap:
+        name: bird-config

@@ -64,7 +64,7 @@ Juniper Networks社のContrail Networkingは、2012年にContrail Systems社を�
   - Fabric Forwarding
   - Virtual Network
 - [ClusterIP](https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/ClusterIP.md)
-- NodePort
+- [NodePort](https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/NodePort.md)
 - Load Balancer
 - Ingress
 - KubeVirt

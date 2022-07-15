@@ -1,0 +1,88 @@
+apiVersion: core.contrail.juniper.net/v1alpha1
+kind: Subnet
+metadata:
+  namespace: ns1
+  name: subnet1
+  annotations:
+    core.juniper.net/display-name: subnet1
+spec:
+  cidr: "10.0.0.0/24"
+  defaultGateway: 10.0.0.1
+---
+apiVersion: core.contrail.juniper.net/v1alpha1
+kind: VirtualNetwork
+metadata:
+  namespace: ns1
+  name: vn1
+  annotations:
+    core.juniper.net/display-name: vn1
+spec:
+  v4SubnetReference:
+    apiVersion: core.contrail.juniper.net/v1alpha1
+    kind: Subnet
+    namespace: ns1
+    name: subnet1
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: keepalived1
+  namespace: ns1
+  annotations:
+    k8s.v1.cni.cncf.io/networks: |
+      [
+        {
+          "name": "vn1",
+          "namespace": "ns1",
+          "cni-args": {
+            "net.juniper.contrail.allowedAddressPairs": "[{\"ip\": \"10.0.0.100/32\",\"mac\":\"X:X:X:X:X:X\",\"addressMode\": \"active-standby\"}]”
+          }
+        }
+      ]
+spec:
+  containers:
+  - name: keepalived1
+    image: my-keepalived
+    imagePullPolicy: IfNotPresent
+    command: [ "/bin/bash", "-c" ]
+    args:
+      - ip route del default;
+        ip route add default via 10.0.0.1;
+        sleep infinity;
+    securityContext:
+      privileged: true
+      capabilities:
+        add:
+          - NET_ADMIN
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: keepalived2
+  namespace: ns1
+  annotations:
+    k8s.v1.cni.cncf.io/networks: |
+      [
+        {
+          "name": "vn1",
+          "namespace": "ns1",
+          "cni-args": {
+            "net.juniper.contrail.allowedAddressPairs": "[{\"ip\": \"10.0.0.100/32\",\"mac\":\"X:X:X:X:X:X\",\"addressMode\": \"active-standby\"}]”
+          }
+        }
+      ]
+spec:
+  containers:
+  - name: keepalived2
+    image: my-keepalived
+    imagePullPolicy: IfNotPresent
+    command: [ "/bin/bash", "-c" ]
+    args:
+      - ip route del default;
+        ip route add default via 10.0.0.1;
+        sleep infinity;
+    securityContext:
+      privileged: true
+      capabilities:
+        add:
+          - NET_ADMIN

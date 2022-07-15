@@ -25,7 +25,7 @@ CN2特徴
 申請後、CN2インストールに必要なhub.juniper.netのアカウントの発行及び、deployer.yamlがダウンロード可能となります。
 
 # Contrail Networking歴史
-Juniper Networks社のContrail Networkingは、2012年にContrail Systems社を買収し、リリース以降、パブリッククラウド基盤、プライベートクラウド基盤、キャリアクラウド基盤などさまざまな環境で利用されており、OpenStack分野では最も使われているネットワークプラットフォームとなっています。[OpenContrail Ranked #1 Again!](https://forums.juniper.net/t5/Service-Provider-Transformation/OpenContrail-Ranked-1-Again-Juniper-Brings-Its-A-Game-with-a/ba-p/290851)
+Juniper Networks社のContrail Networkingは、2012年にContrail Systems社を買収し、リリース以降、パブリッククラウド基盤、プライベートクラウド基盤、キャリアクラウド基盤などさまざまな環境で利用されており、OpenStack分野では最も使われているネットワークプラットフォームとなっています。
 
 2018年にはオープンソースで提供していた「OpenContrail」が、「[Tungsten Fabric](https://tungsten.io/)」と名称を変え、Linux Foundationによってホストされ 、よりニュートラルなオープンソースプロジェクトとなっています。
 

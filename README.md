@@ -60,7 +60,7 @@ Juniper Networks社のContrail Networkingは、2012年にContrail Systems社を�
 - [VLAN Sub Interface](https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/VLAN-SubInterface.md)
 - [Allowed Address Pair (VIP)](https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/AllowedAddressPair.md)
 - [Network Policy](https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/NetworkPolicy.md)
-- 外部Router接続
+- [外部Router接続](https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/ExternalRouter.md)
   - Fabric Forwarding
   - Virtual Network
 - ClusterIP

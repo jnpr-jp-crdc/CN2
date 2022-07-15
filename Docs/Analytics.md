@@ -1,7 +1,7 @@
 # Analytics
+Analytics機能を使用するには、事前にContrail-Analyticsをインストールしておく必要があります
 ## Introspection
 - Introspectionにより、Contrailのより詳細なDebuggingが可能
-- 事前にContrail-Analyticsをインストールしておく必要がある
 
 <img src="https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/Images/Introspection.png">
 

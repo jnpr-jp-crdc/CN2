@@ -53,7 +53,7 @@ Juniper Networks社のContrail Networkingは、2012年にContrail Systems社を�
   - Hub&Spoke Case1
   - Hub&Spoke Case2
   - Mesh&Hub&Spoke
-- Route Leak
+- [Route Leak](https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/RouteLeak.md)
   - Same Route Target
   - Router Target Import/Export
 - BGPaaS

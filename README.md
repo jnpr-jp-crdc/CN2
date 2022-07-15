@@ -56,7 +56,7 @@ Juniper Networks社のContrail Networkingは、2012年にContrail Systems社を�
 - [Route Leak](https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/RouteLeak.md)
   - Same Route Target
   - Router Target Import/Export
-- BGPaaS
+- [BGPaaS](https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/BGPaaS.md)
 - VLAN Sub Interface
 - Allowed Address Pair (VIP)
 - Network Policy

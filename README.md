@@ -72,6 +72,6 @@ Juniper Networks社のContrail Networkingは、2012年にContrail Systems社を�
 - [Port base Mirroring](https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/PortBaseMirroring.md)
 - [Contrail Status](https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/ContrailStatus.md)
 - [Analytics](https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/Analytics.md)
-- Lens Extention
+- [Lens Extention](https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/LensExtension.md)
 - Contrail Pipeline
 - Multi-Cluster

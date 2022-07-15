@@ -1,0 +1,23 @@
+apiVersion: core.contrail.juniper.net/v1alpha1
+kind: BGPRouter
+metadata:
+  namespace: contrail
+  name: vmx1
+spec:
+  parent:
+    apiVersion: core.contrail.juniper.net/v1alpha1
+    kind: RoutingInstance
+    namespace: contrail
+    name: default
+  bgpRouterParameters:
+    vendor: contrail
+    routerType: control-node
+    address: 1.1.1.1
+    identifier: 1.1.1.1
+    routerType: router
+    addressFamilies:
+      family:
+        - route-target
+        - inet-vpn
+        - e-vpn
+        - inet

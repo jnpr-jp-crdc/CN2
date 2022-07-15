@@ -66,7 +66,7 @@ Juniper Networks社のContrail Networkingは、2012年にContrail Systems社を�
 - [ClusterIP](https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/ClusterIP.md)
 - [NodePort](https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/NodePort.md)
 - [Load Balancer](https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/Loadbalancer.md)
-- Ingress
+- [Ingress](https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/Ingress.md)
 - KubeVirt
 - DPDK
 - [Port base Mirroring](https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/PortBaseMirroring.md)

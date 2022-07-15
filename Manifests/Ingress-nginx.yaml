@@ -1,0 +1,74 @@
+apiVersion: core.contrail.juniper.net/v1alpha1
+kind: Subnet
+metadata:
+  namespace: ns1
+  name: subnet1
+  annotations:
+    core.juniper.net/display-name: subnet1
+spec:
+  cidr: "10.0.0.0/24"
+  defaultGateway: 10.0.0.1
+---
+apiVersion: core.contrail.juniper.net/v1alpha1
+kind: VirtualNetwork
+metadata:
+  namespace: ns1
+  name: vn1
+  annotations:
+    core.juniper.net/display-name: vn1
+spec:
+  v4SubnetReference:
+    apiVersion: core.contrail.juniper.net/v1alpha1
+    kind: Subnet
+    namespace: ns1
+    name: subnet1
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress1
+  namespace: ns1
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  rules:
+    - http:
+        paths:
+          - path: /testpath
+            pathType: Prefix
+            backend:
+              service:
+                name: web
+                port:
+                  number: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web
+  namespace: ns1
+spec:
+  ports:
+  - port: 8080
+    targetPort: 80
+  selector:
+    app: web
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  namespace: ns1
+  labels:
+    app: web
+  annotations:
+    k8s.v1.cni.cncf.io/networks: ns1/vn1
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    securityContext:
+      privileged: true
+    ports:
+    - containerPort: 80

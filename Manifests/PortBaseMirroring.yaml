@@ -1,0 +1,21 @@
+apiVersion: core.contrail.juniper.net/v1alpha1
+kind: MirrorDestination
+metadata:
+  name: mirrordestinationprofile1
+  namespace: ns1
+  labels:
+    core.juniper.net/analyzer-pod-selector: analyzerpod
+spec:
+  trafficDirection: both
+  juniperHeader: false
+  udpPort: 9098
+  nextHopMode: dynamic
+    staticNhHeader: <null for dynamic nh|vtep tunnel destip, mac, vxlanid for static nh>
+    nextHopMode: <static|dynamic>
+    nicAssistedMirroring: <boolean>
+      nicAssistedVlanID: 
+    staticNextHopHeader: 
+      vTEPDestinationIP: 
+      vTEPDestinationMac: 
+      vxlanID:
+---

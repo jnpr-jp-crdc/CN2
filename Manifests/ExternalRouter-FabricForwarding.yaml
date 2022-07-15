@@ -1,0 +1,25 @@
+apiVersion: core.contrail.juniper.net/v1alpha1
+kind: Subnet
+metadata:
+  namespace: ns1
+  name: subnet1
+  annotations:
+    core.juniper.net/display-name: subnet1
+spec:
+  cidr: "10.0.0.0/24"
+  defaultGateway: 10.0.0.1
+---
+apiVersion: core.contrail.juniper.net/v1alpha1
+kind: VirtualNetwork
+metadata:
+  namespace: ns1
+  name: vn1
+  annotations:
+    core.juniper.net/display-name: vn1
+spec:
+  v4SubnetReference:
+    apiVersion: core.contrail.juniper.net/v1alpha1
+    kind: Subnet
+    namespace: ns1
+    name: subnet1
+  fabricForwarding: true

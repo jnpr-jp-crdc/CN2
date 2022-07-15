@@ -20,7 +20,7 @@ PODをVirtual Networkに接続するには"Virtual Network"と"Subnet"の作成�
 [IPv4 Subnet sample yaml](https://github.com/jnpr-jp-crdc/CN2/blob/main/Manifests/ipv4_subnet.yaml)
 
 #### Subnet Option
-bgpaasPrimaryIP, bgpaasSecondaryIP: BGPaaS参照
+bgpaasPrimaryIP, bgpaasSecondaryIP: [BGPaaS](https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/BGPaaS.md)参照
 
 disableBGPaaSIPAutoAllocation: trueに設定した場合上記オプション必須 
 

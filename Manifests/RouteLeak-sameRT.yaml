@@ -1,0 +1,33 @@
+apiVersion: "k8s.cni.cncf.io/v1"
+kind: NetworkAttachmentDefinition
+metadata:
+  name: vn1
+  namespace: ns1
+  annotations:
+    juniper.net/networks: '{
+      "ipamV4Subnet": "10.0.0.0/24",
+      "routeTargetList": ["target:64512:1"]
+    }'
+spec:
+  config: '{
+    "cniVersion": "0.3.1",
+    "name": "vn1",
+    "type": "contrail-k8s-cni"
+  }'
+---
+apiVersion: "k8s.cni.cncf.io/v1"
+kind: NetworkAttachmentDefinition
+metadata:
+  name: vn2
+  namespace: ns1
+  annotations:
+    juniper.net/networks: '{
+      "ipamV4Subnet": "20.0.0.0/24",
+      "routeTargetList": ["target:64512:1"]
+    }'
+spec:
+  config: '{
+    "cniVersion": "0.3.1",
+    "name": "vn2",
+    "type": "contrail-k8s-cni"
+  }'

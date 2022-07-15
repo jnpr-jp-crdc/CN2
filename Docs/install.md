@@ -11,6 +11,11 @@
   - Center ClusterのContrail Controllerから他ClusterのvRouterを管理
   ![Multi-Cluster](https://www.juniper.net/documentation/us/en/software/cn-cloud-native22/cn-cloud-native-k8s-install-and-lcm/images/jn-000287.png)
 
+# Contrail Requirements
+[サポートOS、Kubernetes Version](https://www.juniper.net/documentation/us/en/software/cn-cloud-native22/cn-cloud-native-k8s-install-and-lcm/topics/reference/cn-cloud-native-system-requirements.html)
+
+[最小スペック](https://www.juniper.net/documentation/us/en/software/cn-cloud-native22/cn-cloud-native-k8s-install-and-lcm/topics/reference/cn-cloud-native-system-requirements.html)
+
 # インストール ステップ
 1. Free Trialサイトにアクセスし、hub.juniper.netのアカウント取得
 
@@ -24,12 +29,6 @@
 
     [Kubernetesインストール(JuniperSite)](https://www.juniper.net/documentation/us/en/software/cn-cloud-native22/cn-cloud-native-k8s-install-and-lcm/topics/task/cn-cloud-native-k8s-create-kubernetes-cluster.html)
     [Kubernetesインストール(kubernetes.io)](https://kubernetes.io/ja/docs/setup/production-environment/tools/kubeadm/)
-
-  - Contrail Requirements
-
-    [サポートOS、Kubernetes Version](https://www.juniper.net/documentation/us/en/software/cn-cloud-native22/cn-cloud-native-k8s-install-and-lcm/topics/reference/cn-cloud-native-system-requirements.html)
-
-    [最小スペック](https://www.juniper.net/documentation/us/en/software/cn-cloud-native22/cn-cloud-native-k8s-install-and-lcm/topics/reference/cn-cloud-native-system-requirements.html)
     
 3. 以下のサイトからContrail Deployment ManifestsのDownload
 

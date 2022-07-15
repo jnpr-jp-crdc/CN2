@@ -19,3 +19,60 @@ spec:
       vTEPDestinationMac: 
       vxlanID:
 ---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: analyzerpod
+  namespace: ns1
+  labels:
+    core.juniper.net/analyzer-pod: analyzerpod
+  annotations:
+    core.juniper.net/analyzer-interface: "true"
+    k8s.v1.cni.cncf.io/networks: |
+      [
+        {
+          "name": "vn1",
+          "namespace": "ns1",
+          "cni-args": {
+            "core.juniper.net/analyzer-interface": "true"
+          }
+        }
+      ]
+spec:
+  containers:
+  - name: analyzerpod
+    image: centos
+    imagePullPolicy: IfNotPresent
+    command: [ "/bin/bash", "-c" ]
+    args:
+      - ip route del default;
+        ip route add default via 10.0.0.1;
+        sleep infinity;
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mirrored-pod
+  namespace: ns1
+  annotations:
+    core.juniper.net/mirror-destination: "mirrordestinationprofile1"
+    k8s.v1.cni.cncf.io/networks: |
+      [
+        {
+          "name": "vn1",
+          "namespace": "ns1",
+          "cni-args": {
+            "core.juniper.net/mirror-destination": "mirrordestinationprofile1"
+          }
+        }
+      ]
+spec:
+  containers:
+  - name: mirrored-pod
+    image: centos
+    imagePullPolicy: IfNotPresent
+    command: [ "/bin/bash", "-c" ]
+    args:
+      - ip route del default;
+        ip route add default via 10.0.0.1;
+        sleep infinity;

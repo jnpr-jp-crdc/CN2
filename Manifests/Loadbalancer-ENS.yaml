@@ -1,0 +1,35 @@
+apiVersion: core.contrail.juniper.net/v1alpha1
+kind: Subnet
+metadata:
+  name: subnet-external2
+  namespace: ns1
+spec:
+  cidr: 200.0.0.0/24
+---
+apiVersion: core.contrail.juniper.net/v1alpha1
+kind: VirtualNetwork
+metadata:
+  namespace: ns1
+  name: vn-external2
+spec:
+  v4SubnetReference:
+    apiVersion: core.contrail.juniper.net/v1alpha1
+    kind: Subnet
+    namespace: ns1
+    name: subnet-external2
+  fabricForwarding: true
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+  namespace: ns1
+  annotations:
+    service.contrail.juniper.net/externalNetwork: ns1/vn-external2
+spec:
+  type: LoadBalancer
+  selector:
+    app: web
+  ports:
+  - port: 8080
+    targetPort: 80

@@ -35,7 +35,7 @@ CN2では以下の2つのタイプのNamespaceを利用することが可能
 - Fabric Forwardingをtrueにセットした場合、PODから外部への通信はそのままUnderlayへ接続される
 - Fabric forwardingはNamespace内のdefault-podnetworkにのみ有効
 - Contrail Control Nodeと外部ルータ間でBGP接続をしている場合、PODのホストルートがBGP/inet unicastにより外部ルータへAdvertiseされる
-  - 外部ルータ接続　参照
+  - [外部ルータ接続](https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/ExternalRouter.md)　参照
 <img src="https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/Images/IsolatedNamespace_with_FabricForwarding.png" width="50%">
 
 [Isolated Namespace with Fabric Forwarding Sample yaml](https://github.com/jnpr-jp-crdc/CN2/blob/main/Manifests/IsolatedNamespace_with_FabricForwarding.yaml)

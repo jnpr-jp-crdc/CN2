@@ -1,0 +1,21 @@
+apiVersion: core.contrail.juniper.net/v1alpha1
+kind: BGPAsAService
+metadata:
+  namespace: ns1
+  name: bgpaas-test
+spec:
+  shared: false
+  autonomousSystem: 10
+  bgpAsAServiceSessionAttributes:
+    loopCount: 2
+    routeOriginOverride:
+      origin: EGP
+    addressFamilies:
+      family:
+        - inet
+        - inet6
+ virtualMachineInterfaceReferences:
+    - apiVersion: core.contrail.juniper.net/v1alpha1
+      kind: VirtualMachineInterface
+      namespace: ns1
+      name: bird-cb1d9a9c

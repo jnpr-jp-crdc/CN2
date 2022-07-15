@@ -1,0 +1,22 @@
+apiVersion: core.contrail.juniper.net/v1alpha1
+kind: Subnet
+metadata:
+  name: subnet-external1
+  namespace: ns1
+spec:
+  cidr: 100.0.0.0/24
+---
+apiVersion: core.contrail.juniper.net/v1alpha1
+kind: VirtualNetwork
+metadata:
+  namespace: ns1
+  name: vn-external1
+  labels:
+    service.contrail.juniper.net/externalNetwork: default-external
+spec:
+  v4SubnetReference:
+    apiVersion: core.contrail.juniper.net/v1alpha1
+    kind: Subnet
+    namespace: ns1
+    name: subnet-external1
+  fabricForwarding: true

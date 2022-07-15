@@ -59,7 +59,7 @@ Juniper Networks社のContrail Networkingは、2012年にContrail Systems社を�
 - [BGPaaS](https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/BGPaaS.md)
 - [VLAN Sub Interface](https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/VLAN-SubInterface.md)
 - [Allowed Address Pair (VIP)](https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/AllowedAddressPair.md)
-- Network Policy
+- [Network Policy](https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/NetworkPolicy.md)
 - 外部Router接続
   - Fabric Forwarding
   - Virtual Network

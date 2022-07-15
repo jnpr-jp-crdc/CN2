@@ -70,7 +70,7 @@ Juniper Networks社のContrail Networkingは、2012年にContrail Systems社を�
 - KubeVirt
 - DPDK
 - [Port base Mirroring](https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/PortBaseMirroring.md)
-- Contrail Status
+- [Contrail Status](https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/ContrailStatus.md)
 - Analytics
 - Lens Extention
 - Contrail Pipeline

@@ -1,3 +1,18 @@
+# 外部接続
+- Serviceを使用しないKubernetes Cluster外への接続方法は以下の3つ
+  - Fabric SNAT
+    - 外部ルータ不要
+    - Fabric SNATはNamespace(default-podnetwork)もしくはVirtual Networkで有効化
+    - Kubernetes WorkerNode IPでNATされ外部へ接続  
+    - [Isolated Namespace with Fabric SNAT](https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/Namespace.md) 参照
+  - 外部ルータ接続 - Fabric Forwarding
+    - Fabric ForwardingをNamespaceもしくはVirtual Networkで有効化
+    - 外部ルータとはBGP/IPv4, BGP/IPv6にてPODのHost RouteがContrail Control NodeからAdvertiseされる
+  - 外部ルータ接続 - Virtual Network
+    - Virtual Networkと外部ルータのRouting Instanceを接続
+    - 外部ルータとはBGP/VPNv4, BGP/VPNv6にてPODのHost RouteがContrail Control NodeからAdvertiseされる
+    - Worker Node / 外部ルータ間のデータプレーンはMPLSoGREとなる
+
 # 外部ルータ接続
 - 仮想ネットワークの外部接続には物理ルータを使用可能となり、ソフトウェアGWのボトルネックを解消
 - 仮想ネットワークのVPN網への延伸、NATによるInternet接続が可能

@@ -22,6 +22,24 @@ CN2では以下の2つのタイプのNamespaceを利用することが可能
 ## Isolated Namespace
 [Isolated Namespace Sample yaml](https://github.com/jnpr-jp-crdc/CN2/blob/main/Manifests/IsolatedNamespace.yaml)
 
+## Isolated Namespace with Fabric SNAT
+- Fabric SNATをtrueにセットした場合、PODから外部への通信はPODが稼働するWorkerNodeのInterface IP(vhost0 Interface IP)でSNATされる
+- SNATのため、外部からPODへの接続は不可
+- Namespaceで定義するSNATはNamespace内のdefault-podnetworkにのみ有効
+
+<img src="https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/Images/IsolatedNamespace_SNAT.png" width="50%">
+
+[Isolated Namespace with Fabric SNAT Sample yaml](https://github.com/jnpr-jp-crdc/CN2/blob/main/Manifests/IsolatedNamespace_with_SNAT.yaml)
+
+## Isolated Namespace with Fabric Forwarding
+- Fabric Forwardingをtrueにセットした場合、PODから外部への通信はそのままUnderlayへ接続される
+- Namespaceで定義するFabric forwardingはNamespace内のdefault-podnetworkにのみ有効
+- Contrail Control Nodeと外部ルータ間でBGP接続をしている場合、PODのホストルートがBGP/inet unicastにより外部ルータへAdvertiseされる
+  - [外部ルータ接続](https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/ExternalRouter.md)　参照
+<img src="https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/Images/IsolatedNamespace_with_FabricForwarding.png" width="50%">
+
+[Isolated Namespace with Fabric Forwarding Sample yaml](https://github.com/jnpr-jp-crdc/CN2/blob/main/Manifests/IsolatedNamespace_with_FabricForwarding.yaml)
+
 # Isolated Namespace確認
 新規作成したIsolated Namespaceにdefault-podnetwork, default-servicenetworkが自動作成される
 

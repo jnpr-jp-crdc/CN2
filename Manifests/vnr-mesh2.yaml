@@ -72,3 +72,22 @@ spec:
           matchLabels:
             vnr: db
 ---
+apiVersion: core.contrail.juniper.net/v1alpha1
+kind: VirtualNetworkRouter
+metadata:
+  namespace: ns1
+  name: vnr2
+  annotations:
+    core.juniper.net/display-name: vnr2
+  labels:
+      vnr: db
+spec:
+  type: mesh
+  virtualNetworkSelector:
+    matchLabels:
+      vn: db
+  import:
+    virtualNetworkRouters:
+      - virtualNetworkRouterSelector:
+          matchLabels:
+            vnr: web

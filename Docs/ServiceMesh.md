@@ -280,4 +280,4 @@ kubectl apply -f ./samples/addons/grafana.yaml
 
 kubectl port-forward --address K8S_MASTER_IP service/kiali -n istio-system 20001:20001
 ```
-<img src="https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/Images/kiali.png" width="50%">
+<img src="https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/Images/kiali.png" width="80%">

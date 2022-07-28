@@ -256,10 +256,11 @@ Gateway, VirtualServiceをデプロイ
 ```
 # kubectl apply -f ./samples/bookinfo/networking/bookinfo-gateway.yaml -n ns1
 
-root@cn2-master1:~/istio-1.14.2# kubectl get gateway -n ns1
+# kubectl get gateway -n ns1
 NAME               AGE
 bookinfo-gateway   62s
-root@cn2-master1:~/istio-1.14.2# kubectl get virtualservice -n ns1
+
+# kubectl get virtualservice -n ns1
 NAME       GATEWAYS               HOSTS   AGE
 bookinfo   ["bookinfo-gateway"]   ["*"]   72s
 ```

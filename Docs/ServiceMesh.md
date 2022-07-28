@@ -271,3 +271,13 @@ Istio Ingress Gatewayに設定されたExternal IP宛てにHTTPアクセス
 # curl 100.0.0.4/productpage | grep "<title>.*</title>"
     <title>Simple Bookstore App</title>
 ```
+
+## Kialiによる可視化
+```
+kubectl apply -f ./samples/addons/kiali.yaml
+kubectl apply -f ./samples/addons/prometheus.yaml
+kubectl apply -f ./samples/addons/grafana.yaml
+
+kubectl port-forward --address K8S_MASTER_IP service/kiali -n istio-system 20001:20001
+```
+<img src="https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/Images/kiali.png" width="50%">

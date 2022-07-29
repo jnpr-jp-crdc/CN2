@@ -272,6 +272,10 @@ Istio Ingress Gatewayに設定されたExternal IP宛てにHTTPアクセス
     <title>Simple Bookstore App</title>
 ```
 
+## Virtual Networkを使用したサービスメッシュのデプロイ
+上記はCN2で管理しているIsolated Namespace内のdefault-podnetwork上でサービスメッシュが動作していますが、別途Virtual Networkを作成し、その上でサービスメッシュを動作させることが可能です。
+次期Version:22.3を予定
+
 ## Kialiによる可視化
 ```
 kubectl apply -f ./samples/addons/kiali.yaml

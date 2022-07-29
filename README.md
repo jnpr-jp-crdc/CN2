@@ -1,3 +1,8 @@
+---
+layout: default
+title: Cloud Native Contrail Networking (CN2)
+---
+
 # Cloud Native Contrail Networking(CN2)概要
 CN2は、Kubernetes, OpenShiftで利用可能なCNI(Container Network interface)です。
 

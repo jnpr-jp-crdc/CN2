@@ -2,3 +2,8 @@ theme: jekyll-theme-cayman
 google_analytics: G-W1GPPQBKB7
 plugins:
   - jekyll-sitemap  
+
+sitemap:
+    path: sitemap.xml
+    template: ./sitemap_template.xml
+    rel: false

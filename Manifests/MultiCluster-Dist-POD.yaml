@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: centos2
+  namespace: ns1
+  annotations:
+    k8s.v1.cni.cncf.io/networks: kubemanager-cluster2-cluster2-ns1/vn2
+spec:
+  containers:
+  - name: centos2
+    image: centos
+    command: [ "/bin/bash", "-c" ]
+    args:
+      - ip route del default;
+        ip route add default via 20.0.0.1;
+        sleep infinity;
+    securityContext:
+      privileged: true
+      capabilities:
+        add:
+          - NET_ADMIN

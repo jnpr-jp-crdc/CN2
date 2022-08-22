@@ -10,10 +10,10 @@ K8S Cluster毎にCNIをインストールする必要がなく、Central K8S Clu
 ※Central ClusterのContrail deployer yamlは"central_cluster_deployer_example.yaml"を使用
 
 1. Central K8S Cluster同様、K8Sをインストール
-　　・CNI Pluginなし
-　　・Local DNS無効
-　　・Service Network, Pod NetworkのIPv4/IPv6 SubnetはCentral Clusterと別Subnetを指定
-　　・Node名はCentral Clusterと別名を指定
+- CNI Pluginなし
+- Local DNS無効
+- Service Network, Pod NetworkのIPv4/IPv6 SubnetはCentral Clusterと別Subnetを指定
+- Node名はCentral Clusterと別名を指定
 
 2. Distributed ClusterにContrail インストール
 

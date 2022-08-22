@@ -272,7 +272,9 @@ metadata:
 ```
 
 2. Central ClusterにてCentral Cluster用のNamespace/Virtual Network/VNR/POD, Distributed Cluster用のVirtual Network/VNRを作成
+
 [VN-VNR Sample yaml](https://github.com/jnpr-jp-crdc/CN2/blob/main/Manifests/MultiCluster-VN-VNR-POD.yaml)
 
 3. Distrited ClusterにてPODを作成
+ 
 [Distributed Cluster POD Sample yaml](https://github.com/jnpr-jp-crdc/CN2/blob/main/Manifests/MultiCluster-Dist-POD.yaml)

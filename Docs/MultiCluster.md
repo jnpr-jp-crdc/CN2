@@ -255,4 +255,24 @@ PING 10.234.129.0 (10.234.129.0) 56(84) bytes of data.
 64 bytes from 10.234.129.0: icmp_seq=3 ttl=63 time=0.719 ms
 ```
 
+## Multi Cluster間接続(Virtual Network)
+- 各Clusterで作成したVirtual Network間接続はVNRを使用して接続します。
+- default-pod-networkによる接続とは異なり、Pod間の通信はSNATなしでWorker Node間でOverlay接続されます。
 
+作成方法を以下に記載します。
+1. Distributed ClusterにてNamespaceを作成(以降で作成するVNR識別のため、"cluster2-ns1"のlabelを付与します)
+```
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ns1
+  labels:
+    core.juniper.net/isolated-namespace: "true"
+    ns: cluster2-ns1
+```
+
+2. Central ClusterにてCentral Cluster用のNamespace/Virtual Network/VNR/POD, Distributed Cluster用のVirtual Network/VNRを作成
+[VN-VNR Sample yaml](https://github.com/jnpr-jp-crdc/CN2/blob/main/Manifests/MultiCluster-VN-VNR-POD.yaml)
+
+3. Distrited ClusterにてPODを作成
+[Distributed Cluster POD Sample yaml](https://github.com/jnpr-jp-crdc/CN2/blob/main/Manifests/MultiCluster-Dist-POD.yaml)

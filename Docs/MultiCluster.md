@@ -10,10 +10,10 @@ K8S Cluster毎にCNIをインストールする必要がなく、Central K8S Clu
 ※Central ClusterのContrail deployer yamlは"central_cluster_deployer_example.yaml"を使用
 
 1. Central K8S Cluster同様、K8Sをインストール
-- CNI Pluginなし
-- Local DNS無効
-- Service Network, Pod NetworkのIPv4/IPv6 SubnetはCentral Clusterと別Subnetを指定
-- Node名はCentral Clusterと別名を指定
+  - CNI Pluginなし
+  - Local DNS無効
+  - Service Network, Pod NetworkのIPv4/IPv6 SubnetはCentral Clusterと別Subnetを指定
+  - Node名はCentral Clusterと別名を指定
 
 2. Distributed ClusterにContrail インストール
 
@@ -273,8 +273,8 @@ metadata:
 
 2. Central ClusterにてCentral Cluster用のNamespace/Virtual Network/VNR/POD, Distributed Cluster用のVirtual Network/VNRを作成
 
-[VN-VNR Sample yaml](https://github.com/jnpr-jp-crdc/CN2/blob/main/Manifests/MultiCluster-VN-VNR-POD.yaml)
+  [VN-VNR Sample yaml](https://github.com/jnpr-jp-crdc/CN2/blob/main/Manifests/MultiCluster-VN-VNR-POD.yaml)
 
 3. Distrited ClusterにてPODを作成
  
-[Distributed Cluster POD Sample yaml](https://github.com/jnpr-jp-crdc/CN2/blob/main/Manifests/MultiCluster-Dist-POD.yaml)
+  [Distributed Cluster POD Sample yaml](https://github.com/jnpr-jp-crdc/CN2/blob/main/Manifests/MultiCluster-Dist-POD.yaml)

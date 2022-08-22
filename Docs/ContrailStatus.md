@@ -1,3 +1,9 @@
+# Contrail Status インストール
+```
+chmod +x contrail-tools/kubectl-contrailstatus
+cp contrail-tools/kubectl-contrailstatus /usr/local/bin
+```
+
 # Contrail Status
 “kubectl contrail status”でContrailコンポーネントの状態確認が可能
 

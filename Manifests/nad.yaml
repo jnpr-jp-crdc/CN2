@@ -15,6 +15,6 @@ metadata:
 spec:
   config: '{
     "cniVersion": "0.3.1",
-    "name": ”nad1",
+    "name": "nad1",
     "type": "contrail-k8s-cni"
   }'

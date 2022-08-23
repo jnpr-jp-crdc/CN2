@@ -65,7 +65,7 @@ nad1-v6   2001:db8::/64   0.00%   Success   15s
 
 # POD作成
 ## Single Virtual Network NIC POD
-[POD sample yaml](https://github.com/jnpr-jp-crdc/CN2/blob/main/Manifests/pod-nad.yaml)
+[POD sample yaml](https://github.com/jnpr-jp-crdc/CN2/blob/main/Manifests/pod-single-vn.yaml)
 
 PODはdefault-networkとvn1に接続される
 ```

@@ -11,7 +11,7 @@ k8s.v1.cni.cncf.io/networks: |-
       "cni-args": null, 
       "ips": ["10.0.0.100"], 
       "mac": "de:ad:00:00:be:ef", 
-      "interface": "tap1”
+      "interface": "tap1"
     },
     {
       "name": "vn2", 

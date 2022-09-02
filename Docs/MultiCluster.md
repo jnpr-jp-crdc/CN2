@@ -278,3 +278,155 @@ metadata:
 3. Distrited ClusterにてPODを作成
  
   [Distributed Cluster POD Sample yaml](https://github.com/jnpr-jp-crdc/CN2/blob/main/Manifests/MultiCluster-Dist-POD.yaml)
+
+## Multi Cluster Network Policy
+### Distributed Cluster側でNetwork Policy制御
+- Distributed Cluster側で作成したNetwork PolicyはCentral Cluster側にシンクされる
+- Central ClusterのPODにアサインしたLabel(以下の例ではrole:client)をDistributed Cluster側で扱うことが可能
+
+Central Cluster Namespace
+```
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ns1
+  labels:
+    core.juniper.net/isolated-namespace: "true"
+    ns: ns1
+```
+
+Distributed Cluster側でNetworkPolciyを作成
+```
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: policy1
+  namespace: ns1
+spec:
+  podSelector:
+    matchLabels:
+      role: server
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          role: client
+    - namespaceSelector:
+        matchLabels:
+# Central Cluster側のNamespace Label
+          ns: ns1
+    ports:
+    - protocol: TCP
+      port: 22
+```
+
+Central Cluster側でTagを確認
+```
+Central Cluster # kubectl get tags | grep kubemanager-cluster2-cluster2
+tag-57fc9c4686-kubemanager-cluster2-cluster2   namespace                     kubemanager-cluster2-cluster2-ns1                393228    Success   28m
+tag-59f659d6f8-kubemanager-cluster2-cluster2   application                   kubemanager-cluster2-cluster2-kube-system        65543     Success   14d
+tag-6485c55cf-kubemanager-cluster2-cluster2    application                   kubemanager-cluster2-cluster2-ns1                65548     Success   28m
+tag-685d699589-kubemanager-cluster2-cluster2   k8s-app                       dns-autoscaler                                   458758    Success   14d
+tag-6f8f68f4b8-kubemanager-cluster2-cluster2   ns                            cluster2-ns1                                     1638407   Success   28m
+tag-6f96c5f7f6-kubemanager-cluster2-cluster2   pod-template-hash             b5c786945                                        524294    Success   14d
+tag-864844cdbf-kubemanager-cluster2-cluster2   role                          server                                           1835015   Success   28m
+tag-f9b868b95-kubemanager-cluster2-cluster2    namespace                     kubemanager-cluster2-cluster2-kube-system        393223    Success   14d
+```
+
+Central Cluster側でFirewall Policyを確認
+```
+Central Cluster # kubectl get firewallpolicies -A
+NAMESPACE                           NAME            RULES   STATE     AGE
+kubemanager-cluster2-cluster2-ns1   k8s-allow-all   2       Success   26m
+kubemanager-cluster2-cluster2-ns1   k8s-deny-all    1       Success   26m
+kubemanager-cluster2-cluster2-ns1   ns1-policy1     2       Success   104s
+```
+
+Central Cluster側でFirewall Ruleを確認
+```
+Central Cluster # kubectl get firewallrules -A
+NAMESPACE                           NAME                                                      SERVICE                ENDPOINT1   DIRECTION   ENDPOINT2   ACTION   STATE     AGE
+kubemanager-cluster2-cluster2-ns1   default-ingress-ns1-policy1-denyall                       any/0:65535->0:65535               <                       deny     Success   2m18s
+kubemanager-cluster2-cluster2-ns1   k8s-Namespace-kubemanager-cluster2-cluster2-ns1-egress    any/0:65535->0:65535               >                       pass     Success   27m
+kubemanager-cluster2-cluster2-ns1   k8s-Namespace-kubemanager-cluster2-cluster2-ns1-ingress   any/0:65535->0:65535               <                       pass     Success   27m
+kubemanager-cluster2-cluster2-ns1   ns1-ingress-policy1-0-PodSelector-0                       tcp/0:65535->22:22                 <                       pass     Success   2m19s
+kubemanager-cluster2-cluster2-ns1   ns1-ingress-policy1-0-namespaceSelector-1                 tcp/0:65535->22:22                 <                       pass     Success   2m19s
+```
+
+### Central Cluster側でNetwork Policy制御
+- Central Cluster側でNetwork Policyを一元管理
+- Distributed Cluster側はNetwork Policyを作成しない
+- Distributed ClusterのPODに対し、Central Cluster側のNetwork Policyをアサイン
+
+Distributed Cluster Namespace
+```
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ns1
+  labels:
+    core.juniper.net/isolated-namespace: "true"
+    ns: cluster2-ns1
+```
+
+Central Cluster側でNetwork Policyを作成
+```
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: policy1
+# Distributed Cluster側のNamespace Label
+  namespace: kubemanager-cluster2-cluster2-ns1
+spec:
+  podSelector:
+    matchLabels:
+      role: server
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          role: client
+    - namespaceSelector:
+        matchLabels:
+          ns: ns1
+    ports:
+    - protocol: TCP
+      port: 22
+```
+
+Central Cluster側でTagを確認
+```
+Central Cluster # kubectl get tags | grep kubemanager-cluster2-cluster2
+tag-57fc9c4686-kubemanager-cluster2-cluster2   namespace                     kubemanager-cluster2-cluster2-ns1                393228    Success   37m
+tag-59f659d6f8-kubemanager-cluster2-cluster2   application                   kubemanager-cluster2-cluster2-kube-system        65543     Success   14d
+tag-6485c55cf-kubemanager-cluster2-cluster2    application                   kubemanager-cluster2-cluster2-ns1                65548     Success   37m
+tag-685d699589-kubemanager-cluster2-cluster2   k8s-app                       dns-autoscaler                                   458758    Success   14d
+tag-6f8f68f4b8-kubemanager-cluster2-cluster2   ns                            cluster2-ns1                                     1638407   Success   37m
+tag-6f96c5f7f6-kubemanager-cluster2-cluster2   pod-template-hash             b5c786945                                        524294    Success   14d
+tag-864844cdbf-kubemanager-cluster2-cluster2   role                          server                                           1835015   Success   37m
+tag-f9b868b95-kubemanager-cluster2-cluster2    namespace                     kubemanager-cluster2-cluster2-kube-system        393223    Success   14d
+```
+
+Central Cluster側でFirewall Policyを確認
+```
+Central Cluster # kubectl get firewallpolicies -A
+NAMESPACE                           NAME                                        RULES   STATE     AGE
+kubemanager-cluster2-cluster2-ns1   k8s-allow-all                               2       Success   34m
+kubemanager-cluster2-cluster2-ns1   k8s-deny-all                                1       Success   34m
+kubemanager-cluster2-cluster2-ns1   kubemanager-cluster2-cluster2-ns1-policy1   2       Success   4s
+```
+
+Central Cluster側でFirewall Ruleを確認
+```
+Central Cluster # kubectl get firewallrules -A
+NAMESPACE                           NAME                                                                      SERVICE                ENDPOINT1   DIRECTION   ENDPOINT2   ACTION   STATE     AGE
+kubemanager-cluster2-cluster2-ns1   default-ingress-kubemanager-cluster2-cluster2-ns1-policy1-denyall         any/0:65535->0:65535               <                       deny     Success   9s
+kubemanager-cluster2-cluster2-ns1   k8s-Namespace-kubemanager-cluster2-cluster2-ns1-egress                    any/0:65535->0:65535               >                       pass     Success   34m
+kubemanager-cluster2-cluster2-ns1   k8s-Namespace-kubemanager-cluster2-cluster2-ns1-ingress                   any/0:65535->0:65535               <                       pass     Success   34m
+kubemanager-cluster2-cluster2-ns1   kubemanager-cluster2-cluster2-ns1-ingress-policy1-0-PodSelector-0         tcp/0:65535->22:22                 <                       pass     Success   10s
+kubemanager-cluster2-cluster2-ns1   kubemanager-cluster2-cluster2-ns1-ingress-policy1-0-namespaceSelector-1   tcp/0:65535->22:22                 <                       pass     Success   9s
+```

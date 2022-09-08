@@ -64,7 +64,7 @@ metadata:
 spec:
   type: mesh
   virtualNetworkSelector:
-  matchExpressions:
+    matchExpressions:
     - key: vn
       operator: In
       values: [web, db]

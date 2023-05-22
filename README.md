@@ -22,7 +22,7 @@ CN2特徴
 # Free Trial
 [申請フォーム](https://www.juniper.net/jp/ja/forms/cn2-free-trial.html)
 
-申請後、CN2インストールに必要なhub.juniper.netのアカウントの発行及び、deployer.yamlがダウンロード可能となります。
+申請後、CN2インストールに必要なenterprise-hub.juniper.netのアカウントの発行及び、deployer.yamlがダウンロード可能となります。
 
 # Contrail Networking歴史
 Juniper Networks社のContrail Networkingは、2012年にContrail Systems社を買収し、リリース以降、パブリッククラウド基盤、プライベートクラウド基盤、キャリアクラウド基盤などさまざまな環境で利用されており、OpenStack分野では最も使われているネットワークプラットフォームとなっています。

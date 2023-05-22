@@ -5,7 +5,9 @@ CN2環境では通常PODはVirtual Networkに設定されたDefault GW経由で�
 <img src="https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/Images/StaticRoute1.png" width="50%">
 
 ## Static Route to Virtual Network
-Static Routeを定義し、Virtual Networkにアサインする方式
+- Static Routeを定義し、Virtual Networkにアサインする方式
+
+※ API Versionがv3であることに注意
 ### Route Table
 ```
 apiVersion: core.contrail.juniper.net/v3
@@ -49,6 +51,8 @@ spec:
 ## Static Route to Virtual Machine Interface
 - Static Routeを定義し、Virtual Machine Interface(PODのInterface)にアサインする方式
 - Static RouteのNexthop IPを明示していする必要がなく、PODのInterfaceへリダイレクトされる
+
+※ API Versionがv3であることに注意
 
 ### Route Table
 ```

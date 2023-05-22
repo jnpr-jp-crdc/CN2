@@ -58,6 +58,7 @@ Juniper Networks社のContrail Networkingは、2012年にContrail Systems社を�
   - Router Target Import/Export
 - [BGPaaS](https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/BGPaaS.md)
 - [VLAN Sub Interface](https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/VLAN-SubInterface.md)
+- [Static Route](https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/StaticRoute.md)
 - [Allowed Address Pair (VIP)](https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/AllowedAddressPair.md)
 - [Network Policy](https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/NetworkPolicy.md)
 - [外部Router接続](https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/ExternalRouter.md)

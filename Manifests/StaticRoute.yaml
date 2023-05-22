@@ -1,0 +1,57 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ns1
+  labels:
+    core.juniper.net/isolated-namespace: "true"
+---
+apiVersion: core.contrail.juniper.net/v3
+kind: RouteTable
+metadata:
+  name: static-rt
+  namespace: ns1
+spec:
+  routes:
+    route:
+      - nextHop: 10.0.0.3
+        nextHopType: ip-address
+        prefix: 20.0.0.0/24
+        communityAttributes:
+          communityAttribute:
+              - accept-own
+              - no-advertise
+---
+apiVersion: core.contrail.juniper.net/v3
+kind: Subnet
+metadata:
+  name: sub1-v4
+  namespace: ns1
+  annotations:
+    core.juniper.net/display-name: sub1-v4
+spec:
+  cidr: 10.0.0.0/24
+  defaultGateway: 10.0.0.1
+---
+apiVersion: core.contrail.juniper.net/v3
+kind: VirtualNetwork
+metadata:
+  namespace: ns1
+  name: vn1
+spec:
+  v4SubnetReference:
+    apiVersion: core.contrail.juniper.net/v3
+    kind: Subnet
+    namespace: ns1
+    name: sub1-v4
+  routeTableReferences:
+    - apiVersion: core.contrail.juniper.net/v3
+      kind: RouteTable
+      namespace: ns1
+      name: static-rt
+  virtualNetworkProperties:
+    forwardingMode: l2_l3
+    rpf: disable
+  fabricForwarding: false
+  fabricSNAT: false
+  isProviderNetwork: false
+

@@ -76,6 +76,7 @@ Juniper Networks社のContrail Networkingは、2012年にContrail Systems社を�
 - Contrail Pipeline
 - [Multi-Cluster](https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/MultiCluster.md)
 - [Service Mesh](https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/ServiceMesh.md)
+- [Web UI](https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/WebUI.md)
 
 # 関連サイト
 - [Juniper repository for CN2](https://github.com/Juniper/contrail-networking/)

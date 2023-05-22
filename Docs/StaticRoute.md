@@ -1,5 +1,6 @@
 # Static Route
 CN2環境では通常PODはVirtual Networkに設定されたDefault GW経由で別Virtual Network及び外部へアクセスを行うが、Virtual NetworkにStatic Routeを設定することにより、特定の宛先を特定のPOD向けにリダイレクトさせることが可能となる。
+
 ※PODのDefault GWはVirtual NetworkのDefault GWのままでよい
 
 <img src="https://github.com/jnpr-jp-crdc/CN2/blob/main/Docs/Images/StaticRoute1.png" width="50%">

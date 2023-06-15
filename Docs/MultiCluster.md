@@ -28,6 +28,7 @@ server: https://172.27.115.180:6443
 ```
 
 Central Clusterにアクセスするためのsecretを定義
+secret名は"central-kubeconfig"とする必要あり
 ```
 # kubectl create ns contrail-deploy
 # kubectl create secret generic central-kubeconfig -n contrail-deploy --from-file=kubeconfig=/root/central-cluster-kubeconfig
@@ -50,6 +51,11 @@ contrail-k8s-deployerがrunningになっていることを確認
 # kubectl get pods -n contrail-deploy
 NAME                                     READY   STATUS    RESTARTS   AGE
 contrail-k8s-deployer-6458859585-xhwx6   1/1     Running   0          6m
+```
+
+Distribute ClusterにCertManagerをDeploy (Management/Control Plane 暗号化)
+```
+kubectl apply -f manifests/distributed_cluster_certmanager_example.yaml
 ```
 
 Central ClusterにDistributed Clusterのkubeconfigをコピー
@@ -106,6 +112,11 @@ Central Cluster側で、kubemanager-cluster2.yamlをApply
 Distributed Cluster側で、vRouterをインストール
 ```
 # kubectl apply -f distributed_cluster_vrouter_example.yaml
+```
+
+Central Cluster側でDistribute ClusterのKubeManagerのPODが稼働していることを確認
+```
+contrail             kubemanager-cluster2-6cfb484796-tzprp                    1/1     Running     0             35h
 ```
 
 Distribute Clusterが以下の状態になっていることを確認

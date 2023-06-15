@@ -28,6 +28,7 @@ server: https://172.27.115.180:6443
 ```
 
 Central Clusterにアクセスするためのsecretを定義
+
 secret名は"central-kubeconfig"とする必要あり
 ```
 # kubectl create ns contrail-deploy

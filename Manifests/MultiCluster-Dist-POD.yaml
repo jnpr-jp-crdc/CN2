@@ -8,7 +8,7 @@ metadata:
 spec:
   containers:
   - name: centos2
-    image: centos
+    image: docker.io/centos
     command: [ "/bin/bash", "-c" ]
     args:
       - ip route del default;

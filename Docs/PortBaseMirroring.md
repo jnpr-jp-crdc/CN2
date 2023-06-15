@@ -50,7 +50,7 @@ metadata:
 spec:
   containers:
   - name: analyzerpod
-    image: centos
+    image: docker.io/centos
     imagePullPolicy: IfNotPresent
     command: [ "/bin/bash", "-c" ]
     args:
@@ -78,7 +78,7 @@ metadata:
 spec:
   containers:
   - name: mirrored-pod
-    image: centos
+    image: docker.io/centos
     imagePullPolicy: IfNotPresent
     command: [ "/bin/bash", "-c" ]
     args:

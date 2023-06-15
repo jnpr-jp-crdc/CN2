@@ -102,7 +102,7 @@ metadata:
 spec:
   containers:
   - name: centos1
-    image: centos
+    image: docker.io/centos
     command: [ "/bin/bash", "-c" ]
     args:
      - sleep infinity;

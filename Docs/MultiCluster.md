@@ -81,12 +81,13 @@ spec:
     - image: hub.juniper.net/cn2/contrail-k8s-kubemanager:22.2.0.93
       name: contrail-k8s-kubemanager
     nodeSelector:
-      node-role.kubernetes.io/master: ""
+# Masterの名前を指定
+      kubernetes.io/hostname: "cn2-master11"
 # Distributed ClusterのSubnetを指定
-  podV4Subnet: 10.234.128.0/17
-  serviceV4Subnet: 10.234.0.0/17
-  podV6Subnet: fd85:ee78:d8a6:8607::3:0000/112
-  serviceV6Subnet: fd85:ee78:d8a6:8607::2:1000/116
+  podV4Subnet: 10.234.64.0/18
+  serviceV4Subnet: 10.234.0.0/18
+  podV6Subnet: fd85:ee78:d8a6:8608::1:0000/112
+  serviceV6Subnet: fd85:ee78:d8a6:8608::1000/116
 # Distribute Cluster名
   clusterName: cluster2
   kubeconfigSecretName: workload-kubeconfig
